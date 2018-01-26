@@ -41,7 +41,6 @@ namespace GitRepUserList.Services
                     {
 			string res = await response.Content.ReadAsStringAsync();
 			user = await Task.Run(() => JsonConvert.DeserializeObject<User>(res));
-			var rep = await GetUserReposAsync(user);
                     }
                     else
                     {
