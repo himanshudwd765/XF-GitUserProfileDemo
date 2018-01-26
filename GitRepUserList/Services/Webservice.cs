@@ -19,7 +19,7 @@ namespace GitRepUserList.Services
 
         public Webservice()
         {
-			client = new HttpClient();
+	    client = new HttpClient();
             client.BaseAddress = new Uri($"{App.BaseUrl}/");
             client.DefaultRequestHeaders.Add("User-Agent", "Other");
         }
