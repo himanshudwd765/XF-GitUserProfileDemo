@@ -4,7 +4,7 @@
     x:Class="GitRepUserList.Views.UserProfilePage"
     Title="Github User">
 	<ContentPage.Padding>
-        <OnPlatform x:TypeArguments ="Thickness" iOS ="0, 20, 0, 0" Android ="0, 0, 0, 0" WinPhone ="0, 0, 0, 0"/>
+        <OnPlatform x:TypeArguments ="Thickness" iOS ="0, 0, 0, 0" Android ="0, 0, 0, 0" WinPhone ="0, 0, 0, 0"/>
     </ContentPage.Padding>
     <ContentPage.Content>
         <AbsoluteLayout>
