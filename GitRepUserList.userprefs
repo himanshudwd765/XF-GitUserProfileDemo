@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{BF57E1D5-88A9-40D5-95B1-B79E775CA5D6}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GitRepUserList/App.xaml.cs">
+    <Files>
+      <File FileName="GitRepUserList/Services/Webservice.cs" Line="90" Column="6" />
+      <File FileName="GitRepUserList/Views/UserProfilePage.xaml" Line="23" Column="39" />
+      <File FileName="GitRepUserList/Views/UserProfilePage.xaml.cs" Line="58" Column="10" />
+      <File FileName="GitRepUserList/App.xaml.cs" Line="14" Column="72" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.GitRepUserList.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6BC75A4D-95E0-46C1-96D5-4C87CAF83321" />
+  <MonoDevelop.Ide.ItemProperties.GitRepUserList.Droid PreferredExecutionTarget="Android.iFuel50414L0005930" />
+</Properties>

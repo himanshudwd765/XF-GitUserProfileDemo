@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="GitRepUserList.Views.UserProfilePage"
+    Title="Github User">
+	<ContentPage.Padding>
+        <OnPlatform x:TypeArguments ="Thickness" iOS ="0, 20, 0, 0" Android ="0, 0, 0, 0" WinPhone ="0, 0, 0, 0"/>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ActivityIndicator x:Name="loader" Color="Gray" AbsoluteLayout.LayoutBounds="0.5,0.5,100,100" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            <Label HorizontalTextAlignment="Center" x:Name="errorMessage" AbsoluteLayout.LayoutBounds="0.5,0.5,350,200" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            <SearchBar x:Name="searchBar" Placeholder="Enter user name" SearchButtonPressed="Handle_SearchButtonPressed"/>
+            <StackLayout x:Name="detailLayoutView" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="StartAndExpand" Orientation="Vertical" Margin="0,60,0,0">
+                <Image x:Name="avtarUrl" WidthRequest="150" HeightRequest="150" VerticalOptions="Center"/>
+                <Label x:Name="lblUserName" HorizontalTextAlignment="Center"/>
+                <ContentView BackgroundColor="Silver" Padding="10,5,0,5">
+                    <Label Text="Repositories"/>
+                </ContentView>
+                <Label x:Name="lblNoRepoMessage" Text="No Repository found" HorizontalTextAlignment="Center" Margin="0,30,0,0"/>
+                <ListView x:Name="listView" CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text= "{Binding Name}" Detail="{Binding Description}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                 </ListView>
+             </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
