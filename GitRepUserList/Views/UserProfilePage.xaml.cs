@@ -29,29 +29,28 @@ namespace GitRepUserList.Views
 		profile = await webservice.GetUserAsync(searchBar.Text);
 		if (string.IsNullOrEmpty(profile.Message))
 		{
-			userRepositoryList = await webservice.GetUserReposAsync(profile);
-			avtarUrl.Source = profile.AvatarUrl;
-                    	lblUserName.Text = (string.IsNullOrEmpty(profile.Name)) ? profile.LoginId : profile.Name;
-			listView.ItemsSource = userRepositoryList.Items;
-			detailLayoutView.IsVisible = true;
-                    	if(userRepositoryList.Items.Count>0)
-                    	{
-                           listView.IsVisible = true;
-                           lblNoRepoMessage.IsVisible = false;
-                    	}
-                    	else
-                    	{
-                           listView.IsVisible = false;
-			   lblNoRepoMessage.IsVisible = true;
-                    	}
+		    userRepositoryList = await webservice.GetUserReposAsync(profile);
+		    avtarUrl.Source = profile.AvatarUrl;
+                    lblUserName.Text = (string.IsNullOrEmpty(profile.Name)) ? profile.LoginId : profile.Name;
+		    listView.ItemsSource = userRepositoryList.Items;
+		    detailLayoutView.IsVisible = true;
+                    if(userRepositoryList.Items.Count>0)
+                    {
+                       listView.IsVisible = true;
+                       lblNoRepoMessage.IsVisible = false;
+                    }
+                    else
+                    {
+                       listView.IsVisible = false;
+		       lblNoRepoMessage.IsVisible = true;
+                    }
 		}
 		else
 		{
-                    	errorMessage.IsVisible = true;
-		    	errorMessage.Text = profile.Message;
-			detailLayoutView.IsVisible = false;
-		}
-				
+                    errorMessage.IsVisible = true;
+		    errorMessage.Text = profile.Message;
+		    detailLayoutView.IsVisible = false;
+		}		
 		loader.IsRunning = false;
             }
         }
