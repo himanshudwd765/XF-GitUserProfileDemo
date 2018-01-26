@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using GitRepUserList.Models;
 using GitRepUserList.Services;
-using GitRepUserList.ViewModels;
 using Xamarin.Forms;
 
 namespace GitRepUserList.Views
