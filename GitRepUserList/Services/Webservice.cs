@@ -29,79 +29,76 @@ namespace GitRepUserList.Services
         /// </summary>
         /// <returns>The user async.</returns>
         /// <param name="userName">User name.</param>
-		public async Task<User> GetUserAsync(string userName)
-		{
+	public async Task<User> GetUserAsync(string userName)
+	{
             user = new User();
-			try
+	    try
             {
                 if (CrossConnectivity.Current.IsConnected)
                 {
                     var response = await client.GetAsync($"users/" + userName);
                     if(response.IsSuccessStatusCode)
                     {
-						string res = await response.Content.ReadAsStringAsync();
-						user = await Task.Run(() => JsonConvert.DeserializeObject<User>(res));
-						var rep = await GetUserReposAsync(user);
+			string res = await response.Content.ReadAsStringAsync();
+			user = await Task.Run(() => JsonConvert.DeserializeObject<User>(res));
+			var rep = await GetUserReposAsync(user);
                     }
                     else
                     {
                         user.Message = Constants.MessageUserNotFound;
                     }
-
                 }
                 else
                 {
                     user.Message = Constants.MessageNoNetwork;
                 }
-
                 return user;
-			} 
+	    } 
             catch (Exception ex) 
             {
                 user.Message = Constants.MessageAPIRequestFail;
                 return user;
-			}
-		}
+	     }
+	}
 
-		/// <summary>
-		/// Gets the user repository.
-		/// </summary>
-		/// <returns>The user repos async.</returns>
-		/// <param name="user">User.</param>
-		public async Task<RepositoryList> GetUserReposAsync(User user)
-		{
-			repos = new ObservableCollection<Repository>();
+	/// <summary>
+	/// Gets the user repository.
+	/// </summary>
+	/// <returns>The user repos async.</returns>
+	/// <param name="user">User.</param>
+	public async Task<RepositoryList> GetUserReposAsync(User user)
+	{
+	    repos = new ObservableCollection<Repository>();
             repositoryList = new RepositoryList();
-			try
-			{
-				if (CrossConnectivity.Current.IsConnected)
-				{
+	    try
+	    {
+		if (CrossConnectivity.Current.IsConnected)
+		{
                     var response = await client.GetAsync($"users/" + user.LoginId+"/repos");
                     if(response.IsSuccessStatusCode)
                     {
-						string res = await response.Content.ReadAsStringAsync();
-						repos = await Task.Run(() => JsonConvert.DeserializeObject<ObservableCollection<Repository>>(res));
-						repositoryList.Items = repos;
+			string res = await response.Content.ReadAsStringAsync();
+		        repos = await Task.Run(() => JsonConvert.DeserializeObject<ObservableCollection<Repository>>(res));
+			repositoryList.Items = repos;
                     }
                     else
                     {
                         repositoryList.Message = Constants.MessageRepositoryNotFound;
                     }
 					
-				}
-				else
-				{
+		}
+		else
+		{
                     repositoryList.Message = Constants.MessageNoNetwork;
-				}
-
-                return repositoryList;
-			}
-			catch (Exception ex)
-			{
-                repositoryList.Message = Constants.MessageAPIRequestFail;
-                return repositoryList;
-			}
 		}
 
+                return repositoryList;
+	      }
+	      catch (Exception ex)
+	      {
+                 repositoryList.Message = Constants.MessageAPIRequestFail;
+                 return repositoryList;
+	      }
 	}
+    }
 }
