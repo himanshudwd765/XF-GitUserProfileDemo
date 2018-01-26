@@ -12,7 +12,7 @@ namespace GitRepUserList.Services
 {
     public class Webservice
     {
-		HttpClient client;
+	HttpClient client;
         User user;
         ObservableCollection<Repository> repos;
         RepositoryList repositoryList;
