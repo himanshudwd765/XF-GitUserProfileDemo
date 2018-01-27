@@ -24,6 +24,5 @@ namespace GitRepUserList.Models
 
 	[JsonIgnore]
 	public string Message { get; set; } = string.Empty;
-
     }
 }
